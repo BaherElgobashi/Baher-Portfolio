@@ -185,6 +185,50 @@ main>section.hero{min-height:100vh;display:flex;align-items:center;padding-top:1
 .proj-link:hover{gap:14px;color:#fff}
 @media(max-width:1000px){.proj-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:680px){.proj-grid{grid-template-columns:1fr}}
+/* ===== Education & Languages ===== */
+.edu-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+.edu-card{padding:32px 30px;border-radius:22px;border:1px solid var(--line);background:var(--card);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);height:100%}
+.edu-card .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.edu-card h3{font-size:1.3rem}
+.edu-card .inst{color:var(--cyan);font-weight:500;margin:4px 0 4px}
+.edu-card .meta{color:var(--muted);font-size:.92rem}
+.gpa{text-align:center;padding:10px 18px;border-radius:16px;background:linear-gradient(135deg,rgba(99,102,241,.25),rgba(255,46,147,.2));border:1px solid rgba(255,255,255,.14)}
+.gpa strong{font-family:'Syne',sans-serif;font-size:1.7rem;color:var(--amber);display:block;line-height:1.1}
+.gpa span{font-size:.75rem;color:var(--muted)}
+.edu-card ul{list-style:none;margin:18px 0;display:grid;gap:9px;color:var(--muted);font-size:.96rem}
+.edu-card li{position:relative;padding-left:20px}
+.edu-card li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:2px;background:var(--pink)}
+.edu-card h4{font-size:1.05rem;margin-bottom:14px}
+.lang{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;margin-bottom:12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);opacity:0;transform:scale(.85);transition:opacity .6s,transform .6s cubic-bezier(.3,1.5,.5,1)}
+.lang.in{opacity:1;transform:none}
+.lang b{font-weight:500}
+.dots{display:flex;gap:5px}
+.dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.12);transition:background .3s,box-shadow .3s}
+.lang.in .dots i.on{background:var(--pink);box-shadow:0 0 8px var(--pink);animation:dotPop .5s both;animation-delay:calc(var(--i)*.12s + .3s)}
+@keyframes dotPop{from{transform:scale(0)}to{transform:scale(1)}}
+.lang em{font-style:normal;font-size:.82rem;color:var(--cyan)}
+.award{margin-top:18px;padding:14px 16px;border-radius:14px;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.35);color:#fde68a;font-size:.93rem;display:flex;gap:12px;align-items:center}
+.award span{font-size:1.5rem}
+@media(max-width:900px){.edu-grid{grid-template-columns:1fr}}
+/* ===== Contact ===== */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.info-wrap{margin-bottom:16px}
+.info-card{display:flex;align-items:center;gap:18px;padding:18px 22px;border-radius:18px;border:1px solid var(--line);background:var(--card);transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s}
+a.info-card:hover,.info-card:hover{transform:translateX(14px);border-color:rgba(34,211,238,.6);box-shadow:0 14px 40px -16px rgba(34,211,238,.6)}
+.info-card .ic{flex:none;width:50px;height:50px;border-radius:14px;display:grid;place-items:center;font-size:1.4rem;background:rgba(255,255,255,.06)}
+.info-card small{display:block;color:var(--muted);font-size:.8rem}
+.info-card strong{font-weight:500;word-break:break-word}
+.socials{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+.pulse-wrap{position:relative;display:grid;place-items:center;min-height:400px}
+.pulse-avatar{position:relative;z-index:2;width:150px;height:150px;border-radius:50%;display:grid;place-items:center;font-family:'Syne',sans-serif;font-weight:800;font-size:3.2rem;background:linear-gradient(135deg,var(--deep),var(--pink));box-shadow:0 0 60px rgba(255,46,147,.55);animation:beat 2.4s ease-in-out infinite}
+@keyframes beat{50%{transform:scale(1.07)}}
+.ripple{position:absolute;width:150px;height:150px;border-radius:50%;border:2px solid var(--cyan);opacity:0;animation:ripple 3.6s ease-out infinite}
+.ripple:nth-child(2){animation-delay:1.2s;border-color:var(--pink)}
+.ripple:nth-child(3){animation-delay:2.4s;border-color:var(--amber)}
+@keyframes ripple{0%{transform:scale(1);opacity:.85}100%{transform:scale(3);opacity:0}}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:20px}.pulse-wrap{min-height:320px;order:-1}}
+footer{position:relative;z-index:2;text-align:center;padding:36px 0 44px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+footer b{color:#fff;font-family:'Syne',sans-serif}
 /*@CSS*/
 </style>
 </head>
@@ -349,8 +393,52 @@ main>section.hero{min-height:100vh;display:flex;align-items:center;padding-top:1
     </div>
   </div>
 </section>
+<section id="education">
+  <div class="container">
+    <div class="sec-head reveal"><h2>Education &amp; Languages</h2></div>
+    <div class="edu-grid">
+      <div class="reveal left"><div class="edu-card">
+        <div class="row">
+          <div><h3>Bachelor of Science in Computer Science</h3><p class="inst">Benha University</p><p class="meta">Cairo, Egypt · 2021 – 2025</p></div>
+          <div class="gpa"><strong>3.29</strong><span>GPA / 4.00</span></div>
+        </div>
+        <ul>
+          <li>Graduation project: PlantCare, graded A+.</li>
+          <li>Coursework: Data Structures &amp; Algorithms, Object-Oriented Programming, Database Systems, Networks, Software Engineering.</li>
+        </ul>
+        <div class="award"><span>🏆</span>2nd place at the Benha University Hackathon with PlantCare</div>
+      </div></div>
+      <div class="reveal right"><div class="edu-card">
+        <h4>Languages</h4>
+        <!-- TODO: adjust languages and levels to match your real proficiency -->
+        <div class="lang"><b>Arabic</b><span class="dots"><i class="on" style="--i:0"></i><i class="on" style="--i:1"></i><i class="on" style="--i:2"></i><i class="on" style="--i:3"></i><i class="on" style="--i:4"></i></span><em>Native</em></div>
+        <div class="lang"><b>English</b><span class="dots"><i class="on" style="--i:0"></i><i class="on" style="--i:1"></i><i class="on" style="--i:2"></i><i class="on" style="--i:3"></i><i style="--i:4"></i></span><em>Professional</em></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="sec-head reveal"><h2>Let's work together</h2><p>Open to backend and full-stack .NET roles. Send me a message and I'll get back to you.</p></div>
+    <div class="contact-grid">
+      <div>
+        <div class="info-wrap reveal left"><a class="info-card" href="mailto:bahermohamedelgobashi@gmail.com"><span class="ic">✉️</span><div><small>Email</small><strong>bahermohamedelgobashi@gmail.com</strong></div></a></div>
+        <div class="info-wrap reveal left" style="--d:.1s"><a class="info-card" href="tel:+201113411677"><span class="ic">📞</span><div><small>Phone</small><strong>+20 1113411677</strong></div></a></div>
+        <div class="info-wrap reveal left" style="--d:.2s"><div class="info-card"><span class="ic">📍</span><div><small>Location</small><strong>Cairo, Egypt</strong></div></div></div>
+        <div class="info-wrap reveal left" style="--d:.3s"><div class="info-card"><span class="ic">🟢</span><div><small>Availability</small><strong>Open to new opportunities</strong></div></div></div>
+        <div class="socials reveal" style="--d:.4s">
+          <a class="btn primary" href="https://www.linkedin.com/in/baher-elgobashi" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/BaherElgobashi" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="pulse-wrap reveal right"><span class="ripple"></span><span class="ripple"></span><span class="ripple"></span><div class="pulse-avatar">BM</div></div>
+    </div>
+  </div>
+</section>
 <!--@SECTIONS-->
 </main>
+<footer><div class="container">© <span id="yr"></span> <b>Baher Mohamed</b> · Built with HTML, CSS &amp; vanilla JavaScript</div></footer>
 <!--@BODY-->
 <script>
 'use strict';
@@ -441,6 +529,13 @@ window.addEventListener('load',()=>{
   const box=document.getElementById('chips');
   tech.forEach((t,i)=>{ const s=document.createElement('span'); s.className='chip'; s.textContent=t; s.style.setProperty('--c',cols[i%4]); s.style.setProperty('--dl',(i%8)*.35+'s'); box.appendChild(s); });
 })();
+
+/* ---------- Language badges animate in on scroll ---------- */
+(()=>{
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }),{threshold:.5});
+  document.querySelectorAll('.lang').forEach((l,i)=>{ l.style.transitionDelay=i*.15+'s'; io.observe(l); });
+})();
+document.getElementById('yr').textContent=new Date().getFullYear();
 //@JS
 </script>
 </body>
