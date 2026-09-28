@@ -14,6 +14,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<script>
+/* Set to true to honor the visitor's OS "reduce motion" setting (disables smooth scroll and most animations). */
+const RESPECT_REDUCED_MOTION=false;
+if(RESPECT_REDUCED_MOTION&&matchMedia('(prefers-reduced-motion:reduce)').matches) document.documentElement.classList.add('reduce-motion');
+</script>
 <style>
 :root{
   --bg:#07061a; --bg2:#0d0b29; --indigo:#6366f1; --deep:#312e81; --pink:#ff2e93; --cyan:#22d3ee; --amber:#fbbf24;
@@ -49,7 +54,8 @@ main>section{position:relative;z-index:2;padding:110px 0}
 .reveal.in{opacity:1;transform:none}
 @keyframes shimmer{to{background-position:300% center}}
 @media(max-width:700px){.reveal.left{transform:translateX(-30px)}.reveal.right{transform:translateX(30px)}}
-@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+.reduce-motion *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+.reduce-motion{scroll-behavior:auto}
 /* ===== Loader ===== */
 #loader{position:fixed;inset:0;z-index:10000;background:radial-gradient(circle at 50% 40%,#15123f,var(--bg) 70%);display:grid;place-content:center;justify-items:center;gap:28px;transition:opacity .7s ease,visibility .7s}
 #loader.hide{opacity:0;visibility:hidden}
@@ -280,11 +286,9 @@ a,button{-webkit-tap-highlight-color:transparent}
 .spot{position:relative}
 .spot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(255,46,147,.11),rgba(99,102,241,.09) 40%,transparent 70%)}
 .spot:hover::after{opacity:1}
-/* reduced motion: keep a gentle fade instead of removing reveals entirely */
-@media (prefers-reduced-motion:reduce){
-  .reveal,.reveal.left,.reveal.right{transform:none;transition:opacity .6s ease var(--d,0s)!important}
-  .tl-card li,.skill-group li,.proj li,.edu-card li{transform:none;transition:opacity .5s ease!important}
-}
+/* reduced motion (opt-in via RESPECT_REDUCED_MOTION in the head script): keep a gentle fade instead of removing reveals entirely */
+.reduce-motion .reveal,.reduce-motion .reveal.left,.reduce-motion .reveal.right{transform:none;transition:opacity .6s ease var(--d,0s)!important}
+.reduce-motion .tl-card li,.reduce-motion .skill-group li,.reduce-motion .proj li,.reduce-motion .edu-card li{transform:none;transition:opacity .5s ease!important}
 </style>
 </head>
 <body>
@@ -508,7 +512,7 @@ document.querySelectorAll('.tl-card ul,.skill-group ul,.proj ul,.edu-card ul').f
 
 /* ---------- Hero stats count-up ---------- */
 const countUp=()=>{
-  if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  if(document.documentElement.classList.contains('reduce-motion')) return;
   document.querySelectorAll('.stats strong').forEach(el=>{
     const m=el.textContent.match(/^(\d+)(.*)$/); if(!m) return;
     const end=+m[1], suffix=m[2], t0=performance.now(), dur=1400;
