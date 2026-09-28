@@ -13,6 +13,7 @@ Built with **pure HTML, CSS and vanilla JavaScript** in a single file: no framew
 | Cursor | Glowing dot with a trailing ring that grows over interactive elements (desktop only) |
 | Navbar | Frosted-glass, slides down on load, hides on scroll down and returns on scroll up, underline hover animation, smooth scrolling, active-section highlight, mobile menu |
 | Hero | Shimmer gradient name, availability tag, 3D floating card with spinning dashed avatar ring and glowing orb |
+| Entrances | Slower, softer section reveals; hero and contact buttons appear one after another; tech chips pop in with a stagger |
 | Scrolling | Custom eased mouse-wheel and in-page link scrolling, so it feels smooth in every browser regardless of OS animation settings |
 | Motion | List items in cards stagger in, hero stats count up, buttons get a shine sweep, press feedback and tap ripple, cards, badges, icons and headings react on hover or reveal, and cards show a cursor-following spotlight |
 | Skills | Skills grouped by proficiency (Core, Comfortable, Familiar), plus a floating tech chip cloud |
