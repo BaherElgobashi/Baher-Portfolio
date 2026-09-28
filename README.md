@@ -18,6 +18,7 @@ Built with **pure HTML, CSS and vanilla JavaScript** in a single file: no framew
 | Projects | 3-column responsive grid, lift on hover and a gradient sweep across the top border |
 | Education & Languages | Degree card with GPA, hackathon award and animated language badges |
 | Contact | Info cards that slide on hover and a pulsing avatar with 3 expanding ripple rings |
+| Scroll | Gradient progress bar at the top of the page and a back-to-top button |
 | Polish | Noise texture overlay, custom scrollbar, `prefers-reduced-motion` support, keyboard focus styles |
 
 **Typography:** Syne (headings) and DM Sans (body) via Google Fonts.
