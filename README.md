@@ -9,7 +9,7 @@ Built with **pure HTML, CSS and vanilla JavaScript** in a single file: no framew
 | Area | What it does |
 | --- | --- |
 | Loader | Full-screen initials loader with an animated gradient progress bar, fades out after 1 second |
-| Background | Live particle network canvas: floating dots and connecting lines in indigo, pink, cyan and amber, reacting to the mouse |
+| Background | Live particle network canvas: floating dots and connecting lines in indigo, teal and sky blue, reacting to the mouse |
 | Cursor | Glowing dot with a trailing ring that grows over interactive elements (desktop only) |
 | Navbar | Frosted-glass, slides down on load, hides on scroll down and returns on scroll up, underline hover animation, smooth scrolling, active-section highlight, mobile menu |
 | Hero | Shimmer gradient name, availability tag, 3D floating card with spinning dashed avatar ring and glowing orb |
@@ -25,7 +25,7 @@ Built with **pure HTML, CSS and vanilla JavaScript** in a single file: no framew
 | Polish | Favicon and social-share meta tags, noise texture overlay, custom scrollbar, `prefers-reduced-motion` support, keyboard focus styles |
 
 **Typography:** Syne (headings) and DM Sans (body) via Google Fonts.
-**Palette:** indigo `#6366f1` to pink `#ff2e93` for identity, cyan `#22d3ee` as the secondary accent, and amber `#fbbf24` kept only for numbers, dates and the award, on `#07061a`.
+**Palette:** cool tones taken from the profile photo. Indigo `#6366f1`, sky `#38bdf8` and teal `#2dd4bf` carry the identity, and amber `#fbbf24` is kept only for numbers, dates and the award, on deep navy `#060c18`.
 
 ## Run locally
 
