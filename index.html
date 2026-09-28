@@ -165,6 +165,26 @@ main>section.hero{min-height:100vh;display:flex;align-items:center;padding-top:1
 .marquee-track span::after{content:"✦";margin-left:76px;color:var(--amber);-webkit-text-stroke:0}
 @keyframes marq{to{transform:translateX(-50%)}}
 @media(max-width:600px){.timeline{padding-left:30px}.tl-item::before{left:-38px}.tl-card{padding:22px 20px}}
+/* ===== Projects ===== */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.proj-wrap{display:flex}
+.proj{position:relative;display:flex;flex-direction:column;width:100%;padding:32px 28px 28px;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(170deg,rgba(255,255,255,.07),rgba(255,255,255,.02));transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s,border-color .45s}
+.proj::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad);background-size:300%;transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.proj:hover{transform:translateY(-12px);border-color:rgba(99,102,241,.5);box-shadow:0 26px 60px -20px rgba(99,102,241,.6)}
+.proj:hover::before{transform:scaleX(1);animation:shimmer 3s linear infinite}
+.proj-emoji{width:62px;height:62px;display:grid;place-items:center;font-size:2rem;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid var(--line);margin-bottom:20px;transition:transform .4s}
+.proj:hover .proj-emoji{transform:rotate(-8deg) scale(1.1)}
+.proj h3{font-size:1.3rem;margin-bottom:10px}
+.proj p{color:var(--muted);font-size:.96rem;flex:1}
+.proj ul{list-style:none;margin:14px 0 4px;display:grid;gap:7px;color:var(--muted);font-size:.9rem}
+.proj li{position:relative;padding-left:18px}
+.proj li::before{content:"";position:absolute;left:0;top:.7em;width:7px;height:2px;background:var(--cyan)}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 20px}
+.tags span{padding:3px 11px;border-radius:99px;font-size:.76rem;background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.32);color:#a5f3fc}
+.proj-link{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:.92rem;color:var(--amber);align-self:flex-start;transition:gap .3s,color .3s}
+.proj-link:hover{gap:14px;color:#fff}
+@media(max-width:1000px){.proj-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.proj-grid{grid-template-columns:1fr}}
 /*@CSS*/
 </style>
 </head>
@@ -283,6 +303,48 @@ main>section.hero{min-height:100vh;display:flex;align-items:center;padding-top:1
         </ul>
         <div class="badges"><span class="badge hot">18 React views</span><span class="badge">Auth guards</span><span class="badge cy">Payment flows</span><span class="badge am">Git &amp; GitHub</span></div>
       </div></div>
+
+    </div>
+  </div>
+</section>
+<section id="projects">
+  <div class="container">
+    <div class="sec-head reveal"><h2>Projects</h2><p>Personal and graduation projects that show how I structure, secure and scale real applications.</p></div>
+    <div class="proj-grid">
+
+      <div class="proj-wrap reveal" style="--d:.05s"><article class="proj">
+        <div class="proj-emoji">🛵</div>
+        <h3>Talabat Delivery</h3>
+        <p>An e-commerce backend built with Clean Architecture that keeps core domain logic separate from the persistence and web layers.</p>
+        <ul>
+          <li>Redis in-memory caching removes redundant database round-trips and cuts cart retrieval latency.</li>
+          <li>Secure Stripe checkout with webhook handlers, ASP.NET Core Identity and JWT authorization.</li>
+        </ul>
+        <div class="tags"><span>ASP.NET Core</span><span>ReactJS</span><span>Azure</span><span>Redis</span><span>SQL Server</span><span>JWT</span></div>
+        <a class="proj-link" href="https://github.com/BaherElgobashi" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </article></div>
+
+      <div class="proj-wrap reveal" style="--d:.15s"><article class="proj">
+        <div class="proj-emoji">🏋️</div>
+        <h3>Gym Management System</h3>
+        <p>A gym management portal with 8 MVC controllers, built on 3-Tier Architecture and the Repository Pattern.</p>
+        <ul>
+          <li>Business logic across 5 core modules: membership renewals, trainer scheduling, session booking, attendance logs and role-based permissions.</li>
+        </ul>
+        <div class="tags"><span>ASP.NET Core MVC</span><span>C#</span><span>SQL Server</span><span>Entity Framework Core</span></div>
+        <a class="proj-link" href="https://github.com/BaherElgobashi" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </article></div>
+
+      <div class="proj-wrap reveal" style="--d:.25s"><article class="proj">
+        <div class="proj-emoji">🌱</div>
+        <h3>PlantCare Ecosystem</h3>
+        <p>My graduation project: a full-stack platform with 14+ relational models, JWT authentication and 2 role-based portals (Admin and User). Graded A+ and 2nd place at the Benha University Hackathon.</p>
+        <ul>
+          <li>RESTful APIs using DTOs, EF Core Code-First migrations and optimized LINQ queries.</li>
+        </ul>
+        <div class="tags"><span>ASP.NET Core API</span><span>C#</span><span>EF Core</span><span>ReactJS</span><span>SQL Server</span></div>
+        <a class="proj-link" href="https://github.com/BaherElgobashi" target="_blank" rel="noopener">View demo ↗</a>
+      </article></div>
 
     </div>
   </div>
