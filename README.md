@@ -11,7 +11,7 @@ Built with **pure HTML, CSS and vanilla JavaScript** in a single file: no framew
 | Loader | Full-screen initials loader with an animated gradient progress bar, fades out after 1 second |
 | Background | Live particle network canvas: floating dots and connecting lines in indigo, teal and sky blue, reacting to the mouse |
 | Cursor | Glowing dot with a trailing ring that grows over interactive elements (desktop only) |
-| Navbar | Frosted-glass, slides down on load, hides on scroll down and returns on scroll up, underline hover animation, smooth scrolling, active-section highlight, mobile menu |
+| Navbar | Frosted-glass, slides down on load, stays fixed while you scroll and darkens after the first scroll, underline hover animation, smooth scrolling, active-section highlight, mobile menu |
 | Hero | Shimmer gradient name, availability tag, 3D floating card with your profile photo in a spinning dashed ring and a glowing orb |
 | Entrances | Slower, softer section reveals; hero and contact buttons appear one after another; tech chips pop in with a stagger |
 | Scrolling | Custom eased mouse-wheel and in-page link scrolling, so it feels smooth in every browser regardless of OS animation settings |
