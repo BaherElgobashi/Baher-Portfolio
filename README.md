@@ -28,8 +28,8 @@ Built with **pure HTML, CSS and vanilla JavaScript** in a single file: no framew
 No installation needed. Open the file in any modern browser:
 
 ```bash
-git clone https://github.com/BaherElgobashi/portfolio.git
-cd portfolio
+git clone https://github.com/BaherElgobashi/Baher-Portfolio.git
+cd Baher-Portfolio
 # then open index.html in your browser
 ```
 
@@ -38,7 +38,7 @@ cd portfolio
 1. Push the repository to GitHub.
 2. Go to **Settings → Pages**.
 3. Under **Build and deployment**, choose **Deploy from a branch**, select `main` and `/ (root)`, then save.
-4. Your site will be live at `https://baherelgobashi.github.io/portfolio/`.
+4. Your site will be live at `https://baherelgobashi.github.io/Baher-Portfolio/`.
 
 ## Customize
 
@@ -53,7 +53,7 @@ Everything lives in `index.html`:
 ## Project structure
 
 ```
-portfolio/
+Baher-Portfolio/
 ├── index.html   # markup, styles and scripts in one file
 ├── README.md
 └── .gitignore
@@ -76,5 +76,5 @@ The site was built step by step:
 ## Contact
 
 - Email: bahermohamedelgobashi@gmail.com
-- LinkedIn: [linkedin.com/in/baher-elgobashi](https://www.linkedin.com/in/baher-elgobashi)
+- LinkedIn: [linkedin.com/in/baher-elgobashi-1975a5298](https://www.linkedin.com/in/baher-elgobashi-1975a5298)
 - GitHub: [github.com/BaherElgobashi](https://github.com/BaherElgobashi)
