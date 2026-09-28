@@ -22,6 +22,7 @@ Built with **pure HTML, CSS and vanilla JavaScript** in a single file: no framew
 | Education & Languages | Degree card with GPA, hackathon award and animated language badges |
 | Contact | Info cards that slide on hover and a pulsing avatar with 3 expanding ripple rings |
 | Scroll | Gradient progress bar at the top of the page and a back-to-top button |
+| CV | "Download CV" buttons in the hero and contact sections |
 | Polish | Favicon and social-share meta tags, noise texture overlay, custom scrollbar, `prefers-reduced-motion` support, keyboard focus styles |
 
 **Typography:** Syne (headings) and DM Sans (body) via Google Fonts.
@@ -49,6 +50,7 @@ cd Baher-Portfolio
 Everything lives in `index.html`:
 
 - **Reduced motion:** the page ignores the OS "reduce motion" setting by default. Set `RESPECT_REDUCED_MOTION` to `true` in the head script to honor it.
+- **CV:** replace `assets/Baher_Mohamed_CV.pdf` with your latest CV, keeping the same file name.
 - **Colors:** edit the CSS variables in `:root`.
 - **Skills:** move items between the Core, Comfortable and Familiar groups in the `.skill-group` lists.
 - **Tech chips:** edit the `tech` array in the "Tech chip cloud" script.
@@ -60,7 +62,7 @@ Everything lives in `index.html`:
 ```
 Baher-Portfolio/
 ├── index.html   # markup, styles and scripts in one file
-├── assets/      # profile photo (baher-gh.webp)
+├── assets/      # profile photo (baher-gh.webp) and the CV (Baher_Mohamed_CV.pdf)
 ├── README.md
 └── .gitignore
 ```
