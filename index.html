@@ -454,15 +454,15 @@ footer b{color:#fff;font-family:'Syne',sans-serif}
 <a href="#home" class="to-top" aria-label="Back to top">↑</a>
 <script>
 'use strict';
-/* ---------- Scroll reveal (fade up / slide left / slide right) ---------- */
+/* ---------- Scroll reveal (fade up / slide left / slide right), started once the loader is gone ---------- */
 const revealIO = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); revealIO.unobserve(e.target); } });
 },{threshold:.15, rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>revealIO.observe(el));
+const startReveal=()=>document.querySelectorAll('.reveal').forEach(el=>revealIO.observe(el));
 
 /* ---------- Loader ---------- */
 window.addEventListener('load',()=>{
-  setTimeout(()=>{ document.getElementById('loader').classList.add('hide'); document.body.classList.add('loaded'); },1000);
+  setTimeout(()=>{ document.getElementById('loader').classList.add('hide'); document.body.classList.add('loaded'); startReveal(); },1000);
 });
 
 /* ---------- Custom cursor: glowing dot + trailing ring ---------- */
