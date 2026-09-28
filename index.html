@@ -81,7 +81,6 @@ html.smooth-scroll{scroll-behavior:auto}
 .nav.scrolled{background:rgba(7,14,28,.85);box-shadow:0 10px 30px -18px rgba(0,0,0,.8)}
 .nav-in{width:min(1180px,92%);margin-inline:auto;height:68px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:-.01em}
-.logo span{color:var(--accent)}
 .links{display:flex;gap:34px}
 .links a{position:relative;font-size:.95rem;color:var(--muted);padding:6px 0;transition:color .3s}
 .links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--grad);transform:scaleX(0);transform-origin:right;transition:transform .35s}
@@ -267,9 +266,8 @@ a,button{-webkit-tap-highlight-color:transparent}
 .to-top:active{transform:scale(.92)}
 .tap{position:absolute;border-radius:50%;background:rgba(255,255,255,.35);pointer-events:none;transform:scale(0);animation:tap .6s ease-out forwards}
 @keyframes tap{to{transform:scale(1);opacity:0}}
-.logo,.logo span{display:inline-block;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.logo{display:inline-block;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
 .logo:hover{transform:translateY(-2px)}
-.logo:hover span{transform:scale(1.5)}
 /* ===== Card & detail micro-interactions ===== */
 .sec-head.reveal h2::after{transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.2,.8,.2,1) .4s}
 .sec-head.reveal.in h2::after{transform:scaleX(1)}
@@ -310,7 +308,7 @@ a,button{-webkit-tap-highlight-color:transparent}
 <div class="progress" aria-hidden="true"></div>
 <header class="nav">
   <div class="nav-in">
-    <a href="#home" class="logo">Baher<span>.</span>Mohamed</a>
+    <a href="#home" class="logo">Baher Mohamed</a>
     <button class="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="links" aria-label="Main">
       <a href="#home">Home</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
