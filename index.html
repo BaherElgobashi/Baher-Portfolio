@@ -143,6 +143,11 @@ main>section.hero{min-height:100vh;display:flex;align-items:center;padding-top:1
 .skill-group li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:2px;background:var(--gc)}
 .chips-title{margin:70px 0 22px;font-size:1.3rem}
 .chips{display:flex;flex-wrap:wrap;gap:12px}
+.tech{border-top:1px solid var(--line)}
+.tech-group{display:grid;grid-template-columns:210px 1fr;gap:12px 24px;align-items:start;padding:22px 0;border-bottom:1px solid var(--line)}
+.tech-label{display:flex;align-items:center;gap:10px;padding-top:9px;font-weight:700;font-size:1rem}
+.tech-label::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 12px var(--c)}
+@media(max-width:700px){.tech-group{grid-template-columns:1fr}.tech-label{padding-top:0}}
 .chip{padding:9px 18px;border-radius:99px;font-size:.9rem;border:1px solid var(--c,var(--line));background:var(--card);color:#fff;transition:transform .3s,box-shadow .3s,background .3s;animation:bob 5s ease-in-out infinite;animation-delay:var(--dl,0s)}
 .chip:hover{transform:translateY(-8px);animation-play-state:paused;background:color-mix(in srgb,var(--c) 20%,transparent);box-shadow:0 12px 26px -8px var(--c)}
 @keyframes bob{50%{transform:translateY(-3px)}}
@@ -365,7 +370,7 @@ a,button{-webkit-tap-highlight-color:transparent}
       </div></div>
     </div>
     <h3 class="chips-title reveal">Technologies I work with</h3>
-    <div class="chips reveal" id="chips"></div>
+    <div class="tech" id="tech"></div>
   </div>
 </section>
 <div class="marquee" aria-label="Companies and institutions I have worked with">
@@ -598,12 +603,23 @@ window.addEventListener('load',()=>{
   map.forEach((_,id)=>{ const s=document.getElementById(id); s&&io.observe(s); });
 })();
 
-/* ---------- Tech chip cloud ---------- */
+/* ---------- Technologies, grouped by area ---------- */
 (()=>{
-  const tech=['C#','JavaScript','TypeScript','SQL','HTML5','CSS3','ASP.NET Core Web API','ASP.NET MVC','Serenity Framework','EF Core','LINQ','RESTful APIs','JWT','ASP.NET Core Identity','Clean Architecture','Onion Architecture','3-Tier Architecture','Repository Pattern','Dependency Injection','SQL Server','React.js','Tailwind CSS','Bootstrap','Microsoft Azure','Redis','Docker','Stripe','Git','GitHub','Postman','SSMS','Agile'];
-  const cols=['#6366f1','#38bdf8'];
-  const box=document.getElementById('chips');
-  tech.forEach((t,i)=>{ const s=document.createElement('span'); s.className='chip'; s.textContent=t; s.style.setProperty('--c',cols[i%cols.length]); s.style.setProperty('--dl',(i%8)*.35+'s'); s.style.setProperty('--k',i); box.appendChild(s); });
+  const groups=[
+    {name:'Backend',c:'#2dd4bf',items:['C#','ASP.NET Core Web API','ASP.NET MVC','Serenity Framework','EF Core','LINQ','RESTful APIs','JWT','ASP.NET Core Identity','Stripe']},
+    {name:'Frontend',c:'#38bdf8',items:['React.js','JavaScript','TypeScript','HTML5','CSS3','Tailwind CSS','Bootstrap']},
+    {name:'Database',c:'#a78bfa',items:['SQL Server','SQL','SSMS','Redis']},
+    {name:'Architecture & Patterns',c:'#818cf8',items:['Clean Architecture','Onion Architecture','3-Tier Architecture','Repository Pattern','Dependency Injection']},
+    {name:'Cloud & Tools',c:'#94a3b8',items:['Microsoft Azure','Docker','Git','GitHub','Postman','Agile']}
+  ];
+  const box=document.getElementById('tech');
+  groups.forEach((g,gi)=>{
+    const row=document.createElement('div'); row.className='tech-group reveal'; row.style.setProperty('--d',gi*.08+'s'); row.style.setProperty('--c',g.c);
+    const label=document.createElement('h4'); label.className='tech-label'; label.textContent=g.name;
+    const chips=document.createElement('div'); chips.className='chips';
+    g.items.forEach((t,i)=>{ const s=document.createElement('span'); s.className='chip'; s.textContent=t; s.style.setProperty('--dl',(i%6)*.35+'s'); s.style.setProperty('--k',i); chips.appendChild(s); });
+    row.append(label,chips); box.appendChild(row);
+  });
 })();
 
 /* ---------- Language badges animate in on scroll ---------- */

@@ -16,7 +16,7 @@ Built with **pure HTML, CSS and vanilla JavaScript** in a single file: no framew
 | Entrances | Slower, softer section reveals; hero and contact buttons appear one after another; tech chips pop in with a stagger |
 | Scrolling | Custom eased mouse-wheel and in-page link scrolling, so it feels smooth in every browser regardless of OS animation settings |
 | Motion | List items in cards stagger in, hero stats count up, buttons get a shine sweep, press feedback and tap ripple, cards, badges, icons and headings react on hover or reveal, and cards show a cursor-following spotlight |
-| Skills | Skills grouped by proficiency (Core, Comfortable, Familiar), plus a floating tech chip cloud |
+| Skills | Skills grouped by proficiency (Core, Comfortable, Familiar), and technologies grouped into Backend, Frontend, Database, Architecture and Cloud & Tools |
 | Experience | Vertical timeline with animated gradient border, slide-in cards, hover glow and highlight badges, plus an infinite company marquee |
 | Projects | 3-column responsive grid, lift on hover and a gradient sweep across the top border |
 | Education & Languages | Degree card with GPA, hackathon award and animated language badges |
@@ -53,7 +53,7 @@ Everything lives in `index.html`:
 - **CV:** replace `assets/Baher_Mohamed_CV.pdf` with your latest CV, keeping the same file name.
 - **Colors:** edit the CSS variables in `:root`.
 - **Skills:** move items between the Core, Comfortable and Familiar groups in the `.skill-group` lists.
-- **Tech chips:** edit the `tech` array in the "Tech chip cloud" script.
+- **Technologies:** edit the `groups` array in the "Technologies, grouped by area" script.
 - **Projects:** update the links in the `#projects` section to point at each repository or live demo.
 - **Languages:** adjust the `#education` language badges to match your real proficiency.
 
