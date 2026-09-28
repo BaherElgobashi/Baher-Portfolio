@@ -275,6 +275,10 @@ a,button{-webkit-tap-highlight-color:transparent}
 .lang.in:hover{transform:translateX(6px);border-color:rgba(255,46,147,.5)}
 .gpa{transition:transform .3s}
 .gpa:hover{transform:scale(1.06)}
+/* ===== Card spotlight that follows the cursor ===== */
+.spot{position:relative}
+.spot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(255,46,147,.11),rgba(99,102,241,.09) 40%,transparent 70%)}
+.spot:hover::after{opacity:1}
 /* reduced motion: keep a gentle fade instead of removing reveals entirely */
 @media (prefers-reduced-motion:reduce){
   .reveal,.reveal.left,.reveal.right{transform:none;transition:opacity .6s ease var(--d,0s)!important}
@@ -617,6 +621,18 @@ document.addEventListener('click',e=>{
   b.appendChild(d);
   d.addEventListener('animationend',()=>d.remove());
 });
+/* ---------- Card spotlight follows the cursor ---------- */
+(()=>{
+  if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  const cards=document.querySelectorAll('.tl-card,.proj,.skill-group,.edu-card,.info-card');
+  cards.forEach(c=>c.classList.add('spot'));
+  document.addEventListener('mousemove',e=>{
+    const c=e.target.closest('.spot'); if(!c) return;
+    const r=c.getBoundingClientRect();
+    c.style.setProperty('--mx',e.clientX-r.left+'px');
+    c.style.setProperty('--my',e.clientY-r.top+'px');
+  },{passive:true});
+})();
 document.getElementById('yr').textContent=new Date().getFullYear();
 </script>
 </body>
