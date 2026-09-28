@@ -246,6 +246,11 @@ footer b{color:#fff;font-family:'Syne',sans-serif}
 .to-top{position:fixed;right:24px;bottom:24px;z-index:500;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:1.2rem;color:#fff;border:1px solid var(--line);background:rgba(13,11,41,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .3s,transform .3s,visibility .3s,border-color .3s}
 .to-top.show{opacity:1;visibility:visible;transform:none}
 .to-top:hover{border-color:var(--pink)}
+/* reduced motion: keep a gentle fade instead of removing reveals entirely */
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal.left,.reveal.right{transform:none;transition:opacity .6s ease var(--d,0s)!important}
+  .tl-card li,.skill-group li,.proj li,.edu-card li{transform:none;transition:opacity .5s ease!important}
+}
 </style>
 </head>
 <body>
