@@ -171,7 +171,7 @@ main>section.hero{min-height:100vh;display:flex;align-items:center;padding-top:1
 .badge{padding:4px 12px;border-radius:99px;font-size:.78rem;font-weight:500;background:rgba(99,102,241,.16);border:1px solid rgba(99,102,241,.4);color:#c7c8ff}
 .badge.hot{background:rgba(255,46,147,.13);border-color:rgba(255,46,147,.45);color:#ffb0d6}
 .badge.cy{background:rgba(34,211,238,.1);border-color:rgba(34,211,238,.4);color:#a5f3fc}
-.badge.am{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.4);color:#fde68a}
+.badge.am{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.22);color:#e9e8ff}
 /* marquee */
 .marquee{position:relative;z-index:2;overflow:hidden;padding:26px 0;border-block:1px solid var(--line);background:rgba(13,11,41,.6);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
 .marquee-track{display:flex;width:max-content;animation:marq 28s linear infinite}
@@ -197,7 +197,7 @@ main>section.hero{min-height:100vh;display:flex;align-items:center;padding-top:1
 .proj li::before{content:"";position:absolute;left:0;top:.7em;width:7px;height:2px;background:var(--cyan)}
 .tags{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 20px}
 .tags span{padding:3px 11px;border-radius:99px;font-size:.76rem;background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.32);color:#a5f3fc}
-.proj-link{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:.92rem;color:var(--amber);align-self:flex-start;transition:gap .3s,color .3s}
+.proj-link{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:.92rem;color:var(--cyan);align-self:flex-start;transition:gap .3s,color .3s}
 .proj-link:hover{gap:14px;color:#fff}
 @media(max-width:1000px){.proj-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:680px){.proj-grid{grid-template-columns:1fr}}
@@ -355,7 +355,7 @@ a,button{-webkit-tap-highlight-color:transparent}
         <h3>Comfortable</h3><p>Used regularly on real projects</p>
         <ul><li>Clean, Onion &amp; 3-Tier Architecture</li><li>Serenity Framework</li><li>React.js</li><li>JavaScript &amp; TypeScript</li></ul>
       </div></div>
-      <div class="reveal" style="--d:.25s"><div class="skill-group" style="--gc:var(--amber)">
+      <div class="reveal" style="--d:.25s"><div class="skill-group" style="--gc:var(--indigo)">
         <h3>Familiar</h3><p>Worked with, still growing</p>
         <ul><li>Microsoft Azure</li><li>Redis</li><li>Docker</li></ul>
       </div></div>
@@ -596,9 +596,9 @@ window.addEventListener('load',()=>{
 /* ---------- Tech chip cloud ---------- */
 (()=>{
   const tech=['C#','JavaScript','TypeScript','SQL','HTML5','CSS3','ASP.NET Core Web API','ASP.NET MVC','Serenity Framework','EF Core','LINQ','RESTful APIs','JWT','ASP.NET Core Identity','Clean Architecture','Onion Architecture','3-Tier Architecture','Repository Pattern','Dependency Injection','SQL Server','React.js','Tailwind CSS','Bootstrap','Microsoft Azure','Redis','Docker','Stripe','Git','GitHub','Postman','SSMS','Agile'];
-  const cols=['#6366f1','#ff2e93','#22d3ee','#fbbf24'];
+  const cols=['#6366f1','#22d3ee'];
   const box=document.getElementById('chips');
-  tech.forEach((t,i)=>{ const s=document.createElement('span'); s.className='chip'; s.textContent=t; s.style.setProperty('--c',cols[i%4]); s.style.setProperty('--dl',(i%8)*.35+'s'); s.style.setProperty('--k',i); box.appendChild(s); });
+  tech.forEach((t,i)=>{ const s=document.createElement('span'); s.className='chip'; s.textContent=t; s.style.setProperty('--c',cols[i%cols.length]); s.style.setProperty('--dl',(i%8)*.35+'s'); s.style.setProperty('--k',i); box.appendChild(s); });
 })();
 
 /* ---------- Language badges animate in on scroll ---------- */

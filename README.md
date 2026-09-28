@@ -25,7 +25,7 @@ Built with **pure HTML, CSS and vanilla JavaScript** in a single file: no framew
 | Polish | Favicon and social-share meta tags, noise texture overlay, custom scrollbar, `prefers-reduced-motion` support, keyboard focus styles |
 
 **Typography:** Syne (headings) and DM Sans (body) via Google Fonts.
-**Palette:** deep indigo `#6366f1`, hot pink `#ff2e93`, cyan `#22d3ee`, amber `#fbbf24` on `#07061a`.
+**Palette:** indigo `#6366f1` to pink `#ff2e93` for identity, cyan `#22d3ee` as the secondary accent, and amber `#fbbf24` kept only for numbers, dates and the award, on `#07061a`.
 
 ## Run locally
 
