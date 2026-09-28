@@ -13,6 +13,7 @@ Built with **pure HTML, CSS and vanilla JavaScript** in a single file: no framew
 | Cursor | Glowing dot with a trailing ring that grows over interactive elements (desktop only) |
 | Navbar | Frosted-glass, slides down on load, hides on scroll down and returns on scroll up, underline hover animation, smooth scrolling, active-section highlight, mobile menu |
 | Hero | Shimmer gradient name, availability tag, 3D floating card with spinning dashed avatar ring and glowing orb |
+| Scrolling | Custom eased mouse-wheel and in-page link scrolling, so it feels smooth in every browser regardless of OS animation settings |
 | Motion | List items in cards stagger in, hero stats count up, buttons get a shine sweep, press feedback and tap ripple, cards, badges, icons and headings react on hover or reveal, and cards show a cursor-following spotlight |
 | Skills | Skills grouped by proficiency (Core, Comfortable, Familiar), plus a floating tech chip cloud |
 | Experience | Vertical timeline with animated gradient border, slide-in cards, hover glow and highlight badges, plus an infinite company marquee |
@@ -46,6 +47,7 @@ cd Baher-Portfolio
 
 Everything lives in `index.html`:
 
+- **Reduced motion:** the page ignores the OS "reduce motion" setting by default. Set `RESPECT_REDUCED_MOTION` to `true` in the head script to honor it.
 - **Colors:** edit the CSS variables in `:root`.
 - **Skills:** move items between the Core, Comfortable and Familiar groups in the `.skill-group` lists.
 - **Tech chips:** edit the `tech` array in the "Tech chip cloud" script.

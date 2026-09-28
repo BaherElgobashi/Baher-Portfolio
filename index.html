@@ -56,6 +56,7 @@ main>section{position:relative;z-index:2;padding:110px 0}
 @media(max-width:700px){.reveal.left{transform:translateX(-30px)}.reveal.right{transform:translateX(30px)}}
 .reduce-motion *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 .reduce-motion{scroll-behavior:auto}
+html.smooth-scroll{scroll-behavior:auto}
 /* ===== Loader ===== */
 #loader{position:fixed;inset:0;z-index:10000;background:radial-gradient(circle at 50% 40%,#15123f,var(--bg) 70%);display:grid;place-content:center;justify-items:center;gap:28px;transition:opacity .7s ease,visibility .7s}
 #loader.hide{opacity:0;visibility:hidden}
@@ -637,6 +638,38 @@ document.addEventListener('click',e=>{
     c.style.setProperty('--mx',e.clientX-r.left+'px');
     c.style.setProperty('--my',e.clientY-r.top+'px');
   },{passive:true});
+})();
+/* ---------- Page-owned smooth scrolling (mouse wheel + in-page links) ---------- */
+(()=>{
+  const root=document.documentElement;
+  if(root.classList.contains('reduce-motion')||!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  root.classList.add('smooth-scroll');
+  let target=scrollY, current=scrollY, raf=0, last=0;
+  const clamp=v=>Math.max(0,Math.min(root.scrollHeight-innerHeight,v));
+  const step=t=>{
+    const dt=Math.min(t-last,50)||16; last=t;
+    const diff=target-current;
+    if(Math.abs(diff)<.4){ current=target; scrollTo(0,current); raf=0; return; }
+    current+=diff*(1-Math.pow(1-.12,dt/16.67));
+    scrollTo(0,current); raf=requestAnimationFrame(step);
+  };
+  const go=v=>{ target=clamp(v); if(!raf){ current=scrollY; last=performance.now(); raf=requestAnimationFrame(step); } };
+  addEventListener('wheel',e=>{
+    if(e.ctrlKey||Math.abs(e.deltaX)>Math.abs(e.deltaY)) return;
+    e.preventDefault();
+    const dy=e.deltaMode===1?e.deltaY*32:e.deltaMode===2?e.deltaY*innerHeight:e.deltaY;
+    go((raf?target:scrollY)+dy);
+  },{passive:false});
+  addEventListener('scroll',()=>{ if(!raf) current=target=scrollY; },{passive:true});
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('a[href^="#"]');
+    if(!a||e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey) return;
+    const id=a.getAttribute('href').slice(1), el=id&&document.getElementById(id);
+    if(id&&!el) return;
+    e.preventDefault();
+    go(el?el.getBoundingClientRect().top+scrollY-84:0);
+    try{ history.pushState(null,'',id?'#'+id:location.pathname); }catch(_){}
+  });
 })();
 document.getElementById('yr').textContent=new Date().getFullYear();
 </script>
