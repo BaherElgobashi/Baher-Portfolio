@@ -8,7 +8,7 @@ Built with **pure HTML, CSS and vanilla JavaScript** in a single file: no framew
 
 | Area | What it does |
 | --- | --- |
-| Loader | Full-screen initials loader with an animated gradient progress bar, fades out after 2 seconds |
+| Loader | Full-screen initials loader with an animated gradient progress bar, fades out after 1 second |
 | Background | Live particle network canvas: floating dots and connecting lines in indigo, pink, cyan and amber, reacting to the mouse |
 | Cursor | Glowing dot with a trailing ring that grows over interactive elements (desktop only) |
 | Navbar | Frosted-glass, slides down on load, underline hover animation, smooth scrolling, active-section highlight, mobile menu |

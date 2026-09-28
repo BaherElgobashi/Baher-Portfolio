@@ -50,7 +50,7 @@ main>section{position:relative;z-index:2;padding:110px 0}
 #loader.hide{opacity:0;visibility:hidden}
 .ld-init{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(64px,14vw,120px);line-height:1;letter-spacing:-.02em;background:var(--grad);background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 2.4s linear infinite}
 .ld-bar{width:min(260px,70vw);height:4px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden}
-.ld-bar span{display:block;height:100%;width:0;background:var(--grad);background-size:300%;animation:ldfill 1.9s cubic-bezier(.6,.1,.3,1) forwards,shimmer 1.2s linear infinite}
+.ld-bar span{display:block;height:100%;width:0;background:var(--grad);background-size:300%;animation:ldfill .9s cubic-bezier(.6,.1,.3,1) forwards,shimmer 1.2s linear infinite}
 @keyframes ldfill{to{width:100%}}
 /* ===== Cursor ===== */
 .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:10001;border-radius:50%;opacity:0;transition:opacity .3s}
@@ -62,7 +62,7 @@ main>section{position:relative;z-index:2;padding:110px 0}
 /* ===== Particle canvas ===== */
 #bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 /* ===== Navbar ===== */
-.nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(9,8,32,.55);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);border-bottom:1px solid var(--line);transform:translateY(-110%);animation:navIn .9s cubic-bezier(.2,.8,.2,1) 2.1s forwards}
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(9,8,32,.55);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);border-bottom:1px solid var(--line);transform:translateY(-110%);animation:navIn .9s cubic-bezier(.2,.8,.2,1) 1.1s forwards}
 @keyframes navIn{to{transform:none}}
 .nav-in{width:min(1180px,92%);margin-inline:auto;height:68px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:-.01em}
@@ -449,7 +449,7 @@ document.querySelectorAll('.reveal').forEach(el=>revealIO.observe(el));
 
 /* ---------- Loader ---------- */
 window.addEventListener('load',()=>{
-  setTimeout(()=>{ document.getElementById('loader').classList.add('hide'); document.body.classList.add('loaded'); },2000);
+  setTimeout(()=>{ document.getElementById('loader').classList.add('hide'); document.body.classList.add('loaded'); },1000);
 });
 
 /* ---------- Custom cursor: glowing dot + trailing ring ---------- */
