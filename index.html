@@ -212,10 +212,11 @@ main>section.hero{min-height:100vh;display:flex;align-items:center;padding-top:1
 .edu-card h3{font-size:1.3rem}
 .edu-card .inst{color:var(--sky);font-weight:500;margin:4px 0 4px}
 .edu-card .meta{color:var(--muted);font-size:.92rem}
-.gpa{text-align:center;padding:10px 18px;border-radius:16px;background:linear-gradient(135deg,rgba(99,102,241,.25),rgba(45,212,191,.2));border:1px solid rgba(255,255,255,.14)}
-.gpa strong{font-family:'Syne',sans-serif;font-size:1.7rem;color:var(--amber);display:block;line-height:1.1}
-.gpa span{display:block;margin-bottom:2px;font-size:.75rem;letter-spacing:.12em;color:var(--muted)}
-.gpa small{margin-left:4px;font-size:.85rem;font-weight:500;color:var(--muted);font-family:'DM Sans',system-ui,sans-serif}
+.edu-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:6px}
+.gpa{display:inline-flex;align-items:baseline;gap:8px;padding:6px 16px 6px 14px;border-radius:99px;background:linear-gradient(135deg,rgba(99,102,241,.25),rgba(45,212,191,.2));border:1px solid rgba(255,255,255,.16)}
+.gpa strong{font-family:'Syne',sans-serif;font-size:1.15rem;color:var(--amber);line-height:1.2}
+.gpa span{font-size:.7rem;letter-spacing:.14em;color:var(--muted)}
+.gpa small{margin-left:4px;font-size:.8rem;font-weight:500;color:var(--muted);font-family:'DM Sans',system-ui,sans-serif}
 .edu-card ul{list-style:none;margin:18px 0;display:grid;gap:9px;color:var(--muted);font-size:.96rem}
 .edu-card li{position:relative;padding-left:20px}
 .edu-card li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:2px;background:var(--accent)}
@@ -478,8 +479,7 @@ a,button{-webkit-tap-highlight-color:transparent}
     <div class="edu-grid">
       <div class="reveal left"><div class="edu-card">
         <div class="row">
-          <div><h3>Bachelor of Science in Computer Science</h3><p class="inst">Benha University</p><p class="meta">Cairo, Egypt · 2021 – 2025</p></div>
-          <div class="gpa"><span>GPA</span><strong>3.29<small>/ 4.0</small></strong></div>
+          <div><h3>Bachelor of Science in Computer Science</h3><p class="inst">Benha University</p><div class="edu-meta"><p class="meta">Cairo, Egypt · 2021 – 2025</p><div class="gpa"><span>GPA</span><strong>3.29<small>/ 4.0</small></strong></div></div></div>
         </div>
         <ul>
           <li>Graduation project: PlantCare, graded A+.</li>
