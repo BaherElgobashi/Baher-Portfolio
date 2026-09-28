@@ -116,6 +116,23 @@ main>section.hero{min-height:100vh;display:flex;align-items:center;padding-top:1
   .links.open{max-height:420px}
   .links a{padding:16px 6%;border-top:1px solid var(--line)}
 }
+/* ===== Skills ===== */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 56px}
+.skill-top{display:flex;justify-content:space-between;font-weight:500;margin-bottom:9px}
+.skill-top em{font-style:normal;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{height:9px;border-radius:9px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar i{position:relative;display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--indigo),var(--pink));transition:width 1.6s cubic-bezier(.2,.8,.2,1);overflow:hidden}
+.skill:nth-child(3n+2) .bar i{background:linear-gradient(90deg,var(--indigo),var(--cyan))}
+.skill:nth-child(3n) .bar i{background:linear-gradient(90deg,var(--pink),var(--amber))}
+.bar i::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);transform:translateX(-120%)}
+.bar i.done::after{animation:sweep 1.2s ease}
+@keyframes sweep{to{transform:translateX(120%)}}
+.chips-title{margin:70px 0 22px;font-size:1.3rem}
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chip{padding:9px 18px;border-radius:99px;font-size:.9rem;border:1px solid var(--c,var(--line));background:var(--card);color:#fff;transition:transform .3s,box-shadow .3s,background .3s;animation:bob 5s ease-in-out infinite;animation-delay:var(--dl,0s)}
+.chip:hover{transform:translateY(-8px);animation-play-state:paused;background:color-mix(in srgb,var(--c) 20%,transparent);box-shadow:0 12px 26px -8px var(--c)}
+@keyframes bob{50%{transform:translateY(-3px)}}
+@media(max-width:760px){.skills-grid{grid-template-columns:1fr}}
 /*@CSS*/
 </style>
 </head>
@@ -163,6 +180,26 @@ main>section.hero{min-height:100vh;display:flex;align-items:center;padding-top:1
     </div>
   </div>
 </section>
+<section id="skills">
+  <div class="container">
+    <div class="sec-head reveal"><h2>Skills</h2><p>The stack I use every day to design, build and ship reliable backends and the interfaces on top of them.</p></div>
+    <div class="skills-grid">
+      <div class="skill reveal left" data-level="92"><div class="skill-top"><span>C# &amp; .NET</span><em>92%</em></div><div class="bar"><i></i></div></div>
+      <div class="skill reveal right" data-level="90"><div class="skill-top"><span>ASP.NET Core Web API</span><em>90%</em></div><div class="bar"><i></i></div></div>
+      <div class="skill reveal left" data-level="88"><div class="skill-top"><span>EF Core &amp; LINQ</span><em>88%</em></div><div class="bar"><i></i></div></div>
+      <div class="skill reveal right" data-level="86"><div class="skill-top"><span>SQL Server</span><em>86%</em></div><div class="bar"><i></i></div></div>
+      <div class="skill reveal left" data-level="88"><div class="skill-top"><span>RESTful APIs &amp; JWT Auth</span><em>88%</em></div><div class="bar"><i></i></div></div>
+      <div class="skill reveal right" data-level="84"><div class="skill-top"><span>Clean, Onion &amp; 3-Tier Architecture</span><em>84%</em></div><div class="bar"><i></i></div></div>
+      <div class="skill reveal left" data-level="78"><div class="skill-top"><span>Serenity Framework</span><em>78%</em></div><div class="bar"><i></i></div></div>
+      <div class="skill reveal right" data-level="76"><div class="skill-top"><span>React.js</span><em>76%</em></div><div class="bar"><i></i></div></div>
+      <div class="skill reveal left" data-level="78"><div class="skill-top"><span>JavaScript &amp; TypeScript</span><em>78%</em></div><div class="bar"><i></i></div></div>
+      <div class="skill reveal right" data-level="70"><div class="skill-top"><span>Azure, Redis &amp; Docker</span><em>70%</em></div><div class="bar"><i></i></div></div>
+    </div>
+    <h3 class="chips-title reveal">Technologies I work with</h3>
+    <div class="chips" id="chips"></div>
+  </div>
+</section>
+<!--@SECTIONS-->
 <!--@SECTIONS-->
 </main>
 <!--@BODY-->
@@ -234,6 +271,26 @@ window.addEventListener('load',()=>{
     if(e.isIntersecting){ map.forEach(a=>a.classList.remove('active')); map.get(e.target.id)?.classList.add('active'); }
   }),{rootMargin:'-45% 0px -50% 0px'});
   map.forEach((_,id)=>{ const s=document.getElementById(id); s&&io.observe(s); });
+})();
+
+/* ---------- Skill bars: fill on scroll, then shimmer sweep ---------- */
+(()=>{
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting) return;
+    const fill=e.target.querySelector('i');
+    fill.style.width=e.target.dataset.level+'%';
+    fill.addEventListener('transitionend',()=>fill.classList.add('done'),{once:true});
+    io.unobserve(e.target);
+  }),{threshold:.6});
+  document.querySelectorAll('.skill').forEach(s=>io.observe(s));
+})();
+
+/* ---------- Tech chip cloud ---------- */
+(()=>{
+  const tech=['C#','JavaScript','TypeScript','SQL','HTML5','CSS3','ASP.NET Core Web API','ASP.NET MVC','Serenity Framework','EF Core','LINQ','RESTful APIs','JWT','ASP.NET Core Identity','Clean Architecture','Onion Architecture','3-Tier Architecture','Repository Pattern','Dependency Injection','SQL Server','React.js','Tailwind CSS','Bootstrap','Microsoft Azure','Redis','Docker','Stripe','Git','GitHub','Postman','SSMS','Agile'];
+  const cols=['#6366f1','#ff2e93','#22d3ee','#fbbf24'];
+  const box=document.getElementById('chips');
+  tech.forEach((t,i)=>{ const s=document.createElement('span'); s.className='chip'; s.textContent=t; s.style.setProperty('--c',cols[i%4]); s.style.setProperty('--dl',(i%8)*.35+'s'); box.appendChild(s); });
 })();
 //@JS
 </script>
