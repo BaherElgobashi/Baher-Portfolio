@@ -258,6 +258,23 @@ a,button{-webkit-tap-highlight-color:transparent}
 .logo,.logo span{display:inline-block;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
 .logo:hover{transform:translateY(-2px)}
 .logo:hover span{transform:scale(1.5)}
+/* ===== Card & detail micro-interactions ===== */
+.sec-head.reveal h2::after{transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.2,.8,.2,1) .4s}
+.sec-head.reveal.in h2::after{transform:scaleX(1)}
+.tl-item.in::before{animation:dotIn .6s cubic-bezier(.3,1.6,.5,1) .3s both}
+@keyframes dotIn{from{transform:scale(0)}}
+.info-card .ic{transition:transform .35s cubic-bezier(.3,1.5,.5,1),background .3s}
+.info-card:hover .ic{transform:scale(1.12) rotate(-6deg);background:rgba(34,211,238,.15)}
+.badge,.tags span{transition:transform .25s,background .25s,border-color .25s}
+.badge:hover,.tags span:hover{transform:translateY(-2px);border-color:var(--cyan)}
+.edu-card{transition:border-color .35s,box-shadow .35s}
+.edu-card:hover{border-color:rgba(99,102,241,.5);box-shadow:0 20px 44px -24px rgba(99,102,241,.6)}
+.award{transition:transform .3s,box-shadow .3s}
+.award:hover{transform:translateY(-3px);box-shadow:0 12px 30px -16px rgba(251,191,36,.6)}
+.lang{transition:opacity .6s,transform .6s cubic-bezier(.3,1.5,.5,1),border-color .3s}
+.lang.in:hover{transform:translateX(6px);border-color:rgba(255,46,147,.5)}
+.gpa{transition:transform .3s}
+.gpa:hover{transform:scale(1.06)}
 /* reduced motion: keep a gentle fade instead of removing reveals entirely */
 @media (prefers-reduced-motion:reduce){
   .reveal,.reveal.left,.reveal.right{transform:none;transition:opacity .6s ease var(--d,0s)!important}
