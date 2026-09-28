@@ -2,6 +2,8 @@
 
 A fully animated, single-page portfolio for **Baher Mohamed**, Backend Software Engineer (C# · ASP.NET Core · EF Core · SQL Server) with full-stack delivery in React.js.
 
+**Live site:** https://baherelgobashi.github.io/Baher-Portfolio/
+
 Built with **pure HTML, CSS and vanilla JavaScript** in a single file: no frameworks, no build step, no external JS libraries.
 
 ## Features
@@ -70,17 +72,17 @@ Baher-Portfolio/
 
 ## Commit history
 
-The site was built step by step:
+The project is built in small commits, one change each, using prefixes such as `feat`, `fix`, `style`, `refactor` and `perf`. In broad strokes:
 
-1. Scaffold with design tokens, fonts, scrollbar, noise overlay and scroll-reveal system
-2. Loading screen, glowing cursor and particle network canvas
-3. Frosted-glass navbar and hero with 3D card
-4. Skills section with animated bars and chip cloud
-5. Experience timeline and company marquee
-6. Projects grid
-7. Education, languages, contact and footer
-8. Responsive and overflow fixes
-9. README
+1. Scaffold with design tokens, fonts, noise overlay and the scroll-reveal system
+2. Loading screen, glowing cursor, particle network, navbar and hero
+3. Skills, experience timeline, projects, education, languages and contact
+4. Motion polish: page-owned smooth scrolling, staggered reveals, micro-interactions and a back-to-top button
+5. Content: real project links, profile photo, Download CV buttons and technologies grouped by area
+6. Theme: palette taken from the profile photo
+7. Responsive fixes verified at phone width
+
+See the full list with `git log --oneline`.
 
 ## Contact
 
