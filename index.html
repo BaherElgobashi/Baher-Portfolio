@@ -120,22 +120,20 @@ main>section.hero{min-height:100vh;display:flex;align-items:center;padding-top:1
   .links a{padding:16px 6%;border-top:1px solid var(--line)}
 }
 /* ===== Skills ===== */
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 56px}
-.skill-top{display:flex;justify-content:space-between;font-weight:500;margin-bottom:9px}
-.skill-top em{font-style:normal;color:var(--muted);font-variant-numeric:tabular-nums}
-.bar{height:9px;border-radius:9px;background:rgba(255,255,255,.07);overflow:hidden}
-.bar i{position:relative;display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--indigo),var(--pink));transition:width 1.6s cubic-bezier(.2,.8,.2,1);overflow:hidden}
-.skill:nth-child(3n+2) .bar i{background:linear-gradient(90deg,var(--indigo),var(--cyan))}
-.skill:nth-child(3n) .bar i{background:linear-gradient(90deg,var(--pink),var(--amber))}
-.bar i::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);transform:translateX(-120%)}
-.bar i.done::after{animation:sweep 1.2s ease}
-@keyframes sweep{to{transform:translateX(120%)}}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.skill-group{height:100%;padding:28px 26px;border-radius:20px;border:1px solid var(--line);background:var(--card);transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .4s,box-shadow .4s}
+.skill-group:hover{transform:translateY(-8px);border-color:var(--gc);box-shadow:0 20px 44px -22px var(--gc)}
+.skill-group h3{font-size:1.2rem;color:var(--gc)}
+.skill-group p{color:var(--muted);font-size:.9rem;margin:4px 0 18px}
+.skill-group ul{list-style:none;display:grid;gap:10px}
+.skill-group li{position:relative;padding-left:20px}
+.skill-group li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:2px;background:var(--gc)}
 .chips-title{margin:70px 0 22px;font-size:1.3rem}
 .chips{display:flex;flex-wrap:wrap;gap:12px}
 .chip{padding:9px 18px;border-radius:99px;font-size:.9rem;border:1px solid var(--c,var(--line));background:var(--card);color:#fff;transition:transform .3s,box-shadow .3s,background .3s;animation:bob 5s ease-in-out infinite;animation-delay:var(--dl,0s)}
 .chip:hover{transform:translateY(-8px);animation-play-state:paused;background:color-mix(in srgb,var(--c) 20%,transparent);box-shadow:0 12px 26px -8px var(--c)}
 @keyframes bob{50%{transform:translateY(-3px)}}
-@media(max-width:760px){.skills-grid{grid-template-columns:1fr}}
+@media(max-width:900px){.skills-grid{grid-template-columns:1fr}}
 /* ===== Experience ===== */
 .timeline{position:relative;padding-left:44px}
 .timeline::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--indigo),var(--pink),var(--amber),var(--cyan),var(--indigo));background-size:100% 300%;animation:flow 6s linear infinite}
@@ -282,16 +280,18 @@ footer b{color:#fff;font-family:'Syne',sans-serif}
   <div class="container">
     <div class="sec-head reveal"><h2>Skills</h2><p>The stack I use every day to design, build and ship reliable backends and the interfaces on top of them.</p></div>
     <div class="skills-grid">
-      <div class="skill reveal left" data-level="92"><div class="skill-top"><span>C# &amp; .NET</span><em>92%</em></div><div class="bar"><i></i></div></div>
-      <div class="skill reveal right" data-level="90"><div class="skill-top"><span>ASP.NET Core Web API</span><em>90%</em></div><div class="bar"><i></i></div></div>
-      <div class="skill reveal left" data-level="88"><div class="skill-top"><span>EF Core &amp; LINQ</span><em>88%</em></div><div class="bar"><i></i></div></div>
-      <div class="skill reveal right" data-level="86"><div class="skill-top"><span>SQL Server</span><em>86%</em></div><div class="bar"><i></i></div></div>
-      <div class="skill reveal left" data-level="88"><div class="skill-top"><span>RESTful APIs &amp; JWT Auth</span><em>88%</em></div><div class="bar"><i></i></div></div>
-      <div class="skill reveal right" data-level="84"><div class="skill-top"><span>Clean, Onion &amp; 3-Tier Architecture</span><em>84%</em></div><div class="bar"><i></i></div></div>
-      <div class="skill reveal left" data-level="78"><div class="skill-top"><span>Serenity Framework</span><em>78%</em></div><div class="bar"><i></i></div></div>
-      <div class="skill reveal right" data-level="76"><div class="skill-top"><span>React.js</span><em>76%</em></div><div class="bar"><i></i></div></div>
-      <div class="skill reveal left" data-level="78"><div class="skill-top"><span>JavaScript &amp; TypeScript</span><em>78%</em></div><div class="bar"><i></i></div></div>
-      <div class="skill reveal right" data-level="70"><div class="skill-top"><span>Azure, Redis &amp; Docker</span><em>70%</em></div><div class="bar"><i></i></div></div>
+      <div class="reveal" style="--d:.05s"><div class="skill-group" style="--gc:var(--pink)">
+        <h3>Core</h3><p>What I build with every day</p>
+        <ul><li>C# &amp; .NET</li><li>ASP.NET Core Web API</li><li>EF Core &amp; LINQ</li><li>SQL Server</li><li>RESTful APIs &amp; JWT Auth</li></ul>
+      </div></div>
+      <div class="reveal" style="--d:.15s"><div class="skill-group" style="--gc:var(--cyan)">
+        <h3>Comfortable</h3><p>Used regularly on real projects</p>
+        <ul><li>Clean, Onion &amp; 3-Tier Architecture</li><li>Serenity Framework</li><li>React.js</li><li>JavaScript &amp; TypeScript</li></ul>
+      </div></div>
+      <div class="reveal" style="--d:.25s"><div class="skill-group" style="--gc:var(--amber)">
+        <h3>Familiar</h3><p>Worked with, still growing</p>
+        <ul><li>Microsoft Azure</li><li>Redis</li><li>Docker</li></ul>
+      </div></div>
     </div>
     <h3 class="chips-title reveal">Technologies I work with</h3>
     <div class="chips" id="chips"></div>
@@ -507,18 +507,6 @@ window.addEventListener('load',()=>{
     if(e.isIntersecting){ map.forEach(a=>a.classList.remove('active')); map.get(e.target.id)?.classList.add('active'); }
   }),{rootMargin:'-45% 0px -50% 0px'});
   map.forEach((_,id)=>{ const s=document.getElementById(id); s&&io.observe(s); });
-})();
-
-/* ---------- Skill bars: fill on scroll, then shimmer sweep ---------- */
-(()=>{
-  const io=new IntersectionObserver(es=>es.forEach(e=>{
-    if(!e.isIntersecting) return;
-    const fill=e.target.querySelector('i');
-    fill.style.width=e.target.dataset.level+'%';
-    fill.addEventListener('transitionend',()=>fill.classList.add('done'),{once:true});
-    io.unobserve(e.target);
-  }),{threshold:.6});
-  document.querySelectorAll('.skill').forEach(s=>io.observe(s));
 })();
 
 /* ---------- Tech chip cloud ---------- */

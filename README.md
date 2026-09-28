@@ -13,7 +13,7 @@ Built with **pure HTML, CSS and vanilla JavaScript** in a single file: no framew
 | Cursor | Glowing dot with a trailing ring that grows over interactive elements (desktop only) |
 | Navbar | Frosted-glass, slides down on load, underline hover animation, smooth scrolling, active-section highlight, mobile menu |
 | Hero | Shimmer gradient name, availability tag, 3D floating card with spinning dashed avatar ring and glowing orb |
-| Skills | Bars fill on scroll (IntersectionObserver) and get a shimmer sweep, plus a floating tech chip cloud |
+| Skills | Skills grouped by proficiency (Core, Comfortable, Familiar), plus a floating tech chip cloud |
 | Experience | Vertical timeline with animated gradient border, slide-in cards, hover glow and highlight badges, plus an infinite company marquee |
 | Projects | 3-column responsive grid, lift on hover and a gradient sweep across the top border |
 | Education & Languages | Degree card with GPA, hackathon award and animated language badges |
@@ -45,7 +45,7 @@ cd Baher-Portfolio
 Everything lives in `index.html`:
 
 - **Colors:** edit the CSS variables in `:root`.
-- **Skills:** change the `data-level` value (0–100) and the label of each `.skill` element.
+- **Skills:** move items between the Core, Comfortable and Familiar groups in the `.skill-group` lists.
 - **Tech chips:** edit the `tech` array in the "Tech chip cloud" script.
 - **Projects:** update the links in the `#projects` section to point at each repository or live demo.
 - **Languages:** adjust the `#education` language badges to match your real proficiency.
