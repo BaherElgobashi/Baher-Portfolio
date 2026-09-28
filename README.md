@@ -60,6 +60,7 @@ Everything lives in `index.html`:
 ```
 Baher-Portfolio/
 ├── index.html   # markup, styles and scripts in one file
+├── assets/      # profile photo (baher.webp, baher.jpg)
 ├── README.md
 └── .gitignore
 ```
