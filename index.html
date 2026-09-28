@@ -246,6 +246,18 @@ footer b{color:#fff;font-family:'Syne',sans-serif}
 .to-top{position:fixed;right:24px;bottom:24px;z-index:500;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:1.2rem;color:#fff;border:1px solid var(--line);background:rgba(13,11,41,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .3s,transform .3s,visibility .3s,border-color .3s}
 .to-top.show{opacity:1;visibility:visible;transform:none}
 .to-top:hover{border-color:var(--pink)}
+/* ===== Button micro-interactions ===== */
+a,button{-webkit-tap-highlight-color:transparent}
+.btn,.to-top{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.3) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s ease}
+.btn:hover::after{transform:translateX(120%)}
+.btn.primary:active,.btn.ghost:active{transform:translateY(-1px) scale(.97);transition-duration:.12s}
+.to-top:active{transform:scale(.92)}
+.tap{position:absolute;border-radius:50%;background:rgba(255,255,255,.35);pointer-events:none;transform:scale(0);animation:tap .6s ease-out forwards}
+@keyframes tap{to{transform:scale(1);opacity:0}}
+.logo,.logo span{display:inline-block;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.logo:hover{transform:translateY(-2px)}
+.logo:hover span{transform:scale(1.5)}
 /* reduced motion: keep a gentle fade instead of removing reveals entirely */
 @media (prefers-reduced-motion:reduce){
   .reveal,.reveal.left,.reveal.right{transform:none;transition:opacity .6s ease var(--d,0s)!important}
@@ -578,6 +590,16 @@ window.addEventListener('load',()=>{
   addEventListener('scroll',()=>{ if(!queued){ queued=true; requestAnimationFrame(update); } },{passive:true});
   update();
 })();
+/* ---------- Button tap ripple ---------- */
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.btn,.to-top');
+  if(!b||!e.detail) return;
+  const r=b.getBoundingClientRect(), s=Math.max(r.width,r.height)*2, d=document.createElement('span');
+  d.className='tap';
+  d.style.cssText=`width:${s}px;height:${s}px;left:${e.clientX-r.left-s/2}px;top:${e.clientY-r.top-s/2}px`;
+  b.appendChild(d);
+  d.addEventListener('animationend',()=>d.remove());
+});
 document.getElementById('yr').textContent=new Date().getFullYear();
 </script>
 </body>
