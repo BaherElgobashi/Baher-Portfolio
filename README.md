@@ -53,7 +53,7 @@ cd Baher-Portfolio
 Everything lives in `index.html`:
 
 - **Reduced motion:** the page ignores the OS "reduce motion" setting by default. Set `RESPECT_REDUCED_MOTION` to `true` in the head script to honor it.
-- **CV:** replace `assets/Baher_Mohamed_CV.pdf` with your latest CV, keeping the same file name.
+- **CV:** replace `assets/Baher_Mohamed.pdf` with your latest CV, keeping the same file name.
 - **Colors:** edit the CSS variables in `:root`.
 - **Skills:** move items between the Core, Comfortable and Familiar groups in the `.skill-group` lists.
 - **Technologies:** edit the `groups` array in the "Technologies, grouped by area" script.
@@ -65,7 +65,7 @@ Everything lives in `index.html`:
 ```
 Baher-Portfolio/
 ├── index.html   # markup, styles and scripts in one file
-├── assets/      # profile photo (baher-gh.webp) and the CV (Baher_Mohamed_CV.pdf)
+├── assets/      # profile photo (baher-gh.webp) and the CV (Baher_Mohamed.pdf)
 ├── README.md
 └── .gitignore
 ```
