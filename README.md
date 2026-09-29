@@ -52,6 +52,7 @@ cd Baher-Portfolio
 
 Everything lives in `index.html`:
 
+- **Social preview:** regenerate `assets/og-image.jpg` if you change the photo, name or role, keeping it 1200x630.
 - **Reduced motion:** the page ignores the OS "reduce motion" setting by default. Set `RESPECT_REDUCED_MOTION` to `true` in the head script to honor it.
 - **CV:** replace `assets/Baher_Mohamed.pdf` with your latest CV, keeping the same file name.
 - **Colors:** edit the CSS variables in `:root`.
